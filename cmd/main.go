@@ -1,6 +1,9 @@
 package main
 
-import "ds/ds"
+import (
+	"ds/ds"
+	"fmt"
+)
 
 func main() {
 	list := &ds.LinkedList[int]{}
@@ -9,4 +12,6 @@ func main() {
 	list.Append(3)
 
 	list.Print()
+	idx := list.Find(1)
+	fmt.Printf("Found %v at index: %v", 1, idx)
 }

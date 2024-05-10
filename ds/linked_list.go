@@ -28,10 +28,31 @@ func (list *LinkedList[T]) Append(value T) {
 	}
 }
 
-func (list *LinkedList[T]) Get(idx int) {
+func (list *LinkedList[T]) Get(idx int) T {
+	var match T
+	if idx < 0 {
+		return match
+	}
+
+	current := list.next
+	for i := 0; current != nil; i++ {
+		if i == idx {
+			return current.val
+		}
+		current = current.next
+	}
+	return match
 }
 
-func (list *LinkedList[T]) Find(value T) {
+func (list *LinkedList[T]) Find(value T) int {
+	current := list.next
+	for i := 0; current != nil; i++ {
+		if current.val == value {
+			return i
+		}
+		current = current.next
+	}
+	return -1
 }
 
 func (list *LinkedList[T]) InsertAt(value T, idx int) {
