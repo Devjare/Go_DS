@@ -56,7 +56,27 @@ func (list *LinkedList[T]) Find(value T) int {
 }
 
 func (list *LinkedList[T]) InsertAt(value T, idx int) {
+	
+	if idx == 0 {
+		// create newNode, which effectivly is the new list (pointing to the previous head link.next)
+		newNode := &LinkedList[T]{val: value, next: list.next}
+		// replace current head, with new head (newNode) wich already has pointer to the whole list
+		list.next = newNode 
+		return
+	}
+	
+	prev := list
+	current := list.next
 
+	for i := 1; current != nil; i++ {
+		if i == idx {
+			newNode := &LinkedList[T]{val: value, next: current}
+			prev.next = newNode
+			return
+		}
+		prev = current
+		current = current.next
+	}
 }
 
 func (list *LinkedList[T]) Remove(value T) {
