@@ -12,6 +12,6 @@ func main() {
 	list.Append(3)
 
 	list.Print()
-	idx := list.Find(1)
+	idx := list.Find(3)
 	fmt.Printf("Found %v at index: %v", 1, idx)
 }

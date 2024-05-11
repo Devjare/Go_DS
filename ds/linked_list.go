@@ -7,7 +7,7 @@ import (
 
 // LinkedList represents a singly-linked list that holds
 // values of any type.
-type LinkedList[T any] struct {
+type LinkedList[T comparable] struct {
 	next *LinkedList[T]
 	val  T
 }
@@ -56,8 +56,8 @@ func (list *LinkedList[T]) Find(value T) int {
 }
 
 func (list *LinkedList[T]) InsertAt(value T, idx int) {
-}
 
+}
 
 func (list *LinkedList[T]) Remove(value T) {
 }
